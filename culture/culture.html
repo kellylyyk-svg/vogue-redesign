@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culture - VOGUE Magazine</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: hidden;
+      overflow-y: auto;
+      font-family: 'Playfair Display', serif;
+      background: #fff;
+    }
+
+    /* Top Navigation - White Background */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-bottom: 1px solid #e5e5e5;
+      z-index: 1000;
+      padding: 20px 60px;
+    }
+
+    .top-nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .top-nav-logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: #000;
+      letter-spacing: 0.3em;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .top-nav-menu {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 50px;
+      list-style: none;
+    }
+
+    .top-nav-item {
+      color: #999;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      transition: color 0.3s;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .top-nav-item:hover,
+    .top-nav-item.active {
+      color: #000;
+    }
+
+    .top-nav-subscribe {
+      background: transparent;
+      color: #000;
+      padding: 0;
+      border: none;
+      font-size: 13px;
+      font-weight: 400;
+      cursor: pointer;
+      transition: opacity 0.3s;
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 0.05em;
+    }
+
+    .top-nav-subscribe:hover {
+      opacity: 0.6;
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      margin-top: 70px;
+      position: relative;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .hero-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-banner-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-banner-title {
+      font-size: 72px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.05em;
+    }
+
+    /* Content Container */
+    .content-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 80px 60px;
+    }
+
+    /* Section Header */
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .vogue-logo-center {
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      margin-bottom: 15px;
+    }
+
+    .section-subtitle {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: #666;
+    }
+
+    /* Article Grid */
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 80px;
+    }
+
+    .article-card {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .article-image {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      margin-bottom: 15px;
+    }
+
+    .article-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .article-card:hover .article-image img {
+      transform: scale(1.05);
+    }
+
+    .article-content {
+      padding: 0 5px;
+    }
+
+    .article-title-ko {
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.5;
+      margin-bottom: 8px;
+      color: #000;
+    }
+
+    .article-title-en {
+      font-size: 10px;
+      line-height: 1.4;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Mixed Masonry Grid */
+    .masonry-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 15px;
+      margin-bottom: 100px;
+    }
+
+    .masonry-item {
+      position: relative;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .masonry-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .masonry-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .masonry-item.span-2 {
+      grid-column: span 2;
+    }
+
+    .masonry-item.span-3 {
+      grid-column: span 3;
+    }
+
+    .masonry-item.tall {
+      grid-row: span 2;
+    }
+
+    .masonry-item-text {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      right: 15px;
+      color: #fff;
+    }
+
+    .masonry-item-title {
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 5px;
+      letter-spacing: 0.05em;
+    }
+
+    .masonry-item-subtitle {
+      font-size: 9px;
+      opacity: 0.8;
+      letter-spacing: 0.05em;
+    }
+
+    /* Alternating Section */
+    .alternating-section {
+      margin-bottom: 100px;
+    }
+
+    .alternating-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 80px;
+      align-items: center;
+    }
+
+    .alternating-item.reverse {
+      direction: rtl;
+    }
+
+    .alternating-item.reverse > * {
+      direction: ltr;
+    }
+
+    .alternating-image-wrapper {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+    }
+
+    .alternating-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .alternating-text-wrapper {
+      padding: 20px;
+    }
+
+    .alternating-date {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: #999;
+      margin-bottom: 15px;
+    }
+
+    .alternating-title {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 15px;
+      color: #000;
+    }
+
+    .alternating-description {
+      font-size: 12px;
+      line-height: 1.8;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .alternating-link {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: #000;
+      text-decoration: none;
+      border-bottom: 1px solid #000;
+      padding-bottom: 2px;
+      display: inline-block;
+    }
+
+    /* Footer Section */
+    .footer-section {
+      text-align: center;
+      padding: 60px 0 100px;
+    }
+
+    .footer-logo {
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      margin-bottom: 20px;
+    }
+
+    .footer-years {
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: #666;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .article-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .masonry-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .masonry-item.span-2,
+      .masonry-item.span-3 {
+        grid-column: span 1;
+      }
+
+      .alternating-item {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .alternating-item.reverse {
+        direction: ltr;
+      }
+
+      .top-nav-menu {
+        position: static;
+        transform: none;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .article-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .masonry-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .masonry-item.tall {
+        grid-row: span 1;
+      }
+
+      .hero-banner-title {
+        font-size: 48px;
+      }
+
+      .top-nav {
+        padding: 15px 30px;
+      }
+
+      .content-container {
+        padding: 40px 30px;
+      }
+
+      .top-nav-menu {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Top Navigation -->
+  <nav class="top-nav">
+    <div class="top-nav-inner">
+      <a href="index.html" class="top-nav-logo">VOGUE</a>
+      <ul class="top-nav-menu">
+        <li><a href="fashion.html" class="top-nav-item">Fashion</a></li>
+        <li><a href="index.html" class="top-nav-item">Beauty</a></li>
+        <li><a href="life.html" class="top-nav-item">Life</a></li>
+        <li><a href="culture.html" class="top-nav-item active">Culture</a></li>
+        <li><a href="index.html" class="top-nav-item">Video</a></li>
+      </ul>
+      <button class="top-nav-subscribe" onclick="location.href='subscribe.html'">Subscriptions</button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <div class="hero-banner">
+    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1600&h=400&fit=crop" alt="Culture Hero">
+    <div class="hero-banner-overlay">
+      <h1 class="hero-banner-title">Culture</h1>
+    </div>
+  </div>
+
+  <!-- Content Container -->
+  <div class="content-container">
+    <!-- First Section -->
+    <div class="section-header">
+      <div class="vogue-logo-center">VOGUE</div>
+      <div class="section-subtitle">Entertainment<br>엔터테인먼트</div>
+    </div>
+
+    <div class="article-grid">
+      <div class="article-card">
+        <div class="article-image">
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&h=800&fit=crop" alt="Article 1">
+        </div>
+        <div class="article-content">
+          <div class="article-title-ko">넬슨 만델라 노벨평화상 기자회견 다녀온 후기</div>
+          <div class="article-title-en">NELSON MANDELA'S NOBEL PEACE PRIZE PRESS CONFERENCE: MY TAKEAWAY</div>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-image">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&h=800&fit=crop" alt="Article 2">
+        </div>
+        <div class="article-content">
+          <div class="article-title-ko">젊은 보도로 가득한 룩북 앨범 이야기</div>
+          <div class="article-title-en">MADONNA RECREATES MARILYN MONROE'S ICONIC LOOKS</div>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-image">
+          <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&h=800&fit=crop" alt="Article 3">
+        </div>
+        <div class="article-content">
+          <div class="article-title-ko">공공 영화제서 영화한 별로 받은 문화상</div>
+          <div class="article-title-en">KOREAN COLLECTION SERIES BY VOGUE FILMS</div>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-image">
+          <img src="https://images.unsplash.com/photo-1611923134239-b9be5816e23c?w=600&h=800&fit=crop" alt="Article 4">
+        </div>
+        <div class="article-content">
+          <div class="article-title-ko">이번 주말에 꼭 보고 싶은 스타일리시한 우리</div>
+          <div class="article-title-en">MODERN CINEMA MEETS ART: THE HERMÈS APPROACH</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="article-grid">
+      <div class="article-card">
+        <div class="article-image">
+          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&h=800&fit=crop" alt="Article 5">
+        </div>
+        <div class="article-content">
+          <div class="article-title-ko">티파니 앤드 코 컬렉션 속에서 즐기는 우아함</div>
+          <div class="article-title-en">THE FAMILY'S TIFFANY & CO. COLLECTION AT THE RUSSIAN MUSEUM</div>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-image">
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&h=800&fit=crop" alt="Article 6">
+        </div>
+        <div class="article-content">
+          <div class="article-title-ko">보그 색상의 컬렉션이 담긴 사진 포트폴리오</div>
+          <div class="article-title-en">VOGUE KOREA'S COLLECTION AT THE HERMITAGE ANC</div>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-image">
+          <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=600&h=800&fit=crop" alt="Article 7">
+        </div>
+        <div class="article-content">
+          <div class="article-title-ko">프라다 모델 컬렉션 마케팅 더 홀스 오브 어번</div>
+          <div class="article-title-en">PRADA MODEL COLLECTION MARKETS THE HALLS OF URBAN</div>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-image">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&h=800&fit=crop" alt="Article 8">
+        </div>
+        <div class="article-content">
+          <div class="article-title-ko">파리에서 열린 가장 멋진 그랜드 오프닝 파티</div>
+          <div class="article-title-en">The Most Elegant Grand Opening in Paris - Tiffany & Co.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Masonry Grid Section -->
+    <div class="section-header">
+      <div class="vogue-logo-center">VOGUE</div>
+    </div>
+
+    <div class="masonry-grid">
+      <div class="masonry-item span-2 tall">
+        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&h=800&fit=crop" alt="Masonry 1">
+        <div class="masonry-item-text">
+          <div class="masonry-item-title">CONTEMPORARY FASHION</div>
+          <div class="masonry-item-subtitle">WINTER COLLECTION 2026</div>
+        </div>
+      </div>
+      <div class="masonry-item span-2">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&h=400&fit=crop" alt="Masonry 2">
+      </div>
+      <div class="masonry-item span-2">
+        <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&h=400&fit=crop" alt="Masonry 3">
+      </div>
+      <div class="masonry-item span-2">
+        <img src="https://images.unsplash.com/photo-1611923134239-b9be5816e23c?w=600&h=400&fit=crop" alt="Masonry 4">
+      </div>
+      <div class="masonry-item span-2">
+        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&h=400&fit=crop" alt="Masonry 5">
+      </div>
+      <div class="masonry-item span-3">
+        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&h=400&fit=crop" alt="Masonry 6">
+        <div class="masonry-item-text">
+          <div class="masonry-item-title">CULTURAL MOMENTS</div>
+          <div class="masonry-item-subtitle">EXCLUSIVE COVERAGE</div>
+        </div>
+      </div>
+      <div class="masonry-item span-3">
+        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=800&h=400&fit=crop" alt="Masonry 7">
+      </div>
+    </div>
+
+    <!-- Alternating Section -->
+    <div class="alternating-section">
+      <div class="section-header">
+        <div class="vogue-logo-center">VOGUE</div>
+      </div>
+
+      <div class="alternating-item">
+        <div class="alternating-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&h=800&fit=crop" alt="Feature 1">
+        </div>
+        <div class="alternating-text-wrapper">
+          <div class="alternating-date">2026.01.27</div>
+          <h3 class="alternating-title">현대 미술의 진화와 문화적 영향력에 대한 심층 탐구</h3>
+          <p class="alternating-description">전통적인 예술성과 디지털 혁신의 교차점을 탐색하며, 현대 예술가들이 21세기 문화 서사를 어떻게 재구성하고 있는지 살펴봅니다.</p>
+          <a href="#" class="alternating-link">READ MORE</a>
+        </div>
+      </div>
+
+      <div class="alternating-item reverse">
+        <div class="alternating-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&h=800&fit=crop" alt="Feature 2">
+        </div>
+        <div class="alternating-text-wrapper">
+          <div class="alternating-date">2026.01.25</div>
+          <h3 class="alternating-title">문화를 이끄는 여성들의 초상: 권력과 영향력</h3>
+          <p class="alternating-description">오늘날 문화 환경에서 영향력 있는 존재가 된다는 것의 의미를 재정의하는 비전가, 창작자, 리더들에 대한 친밀한 시선.</p>
+          <a href="#" class="alternating-link">READ MORE</a>
+        </div>
+      </div>
+
+      <div class="alternating-item">
+        <div class="alternating-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?w=600&h=800&fit=crop" alt="Feature 3">
+        </div>
+        <div class="alternating-text-wrapper">
+          <div class="alternating-date">2026.01.22</div>
+          <h3 class="alternating-title">고전적 아름다움의 르네상스</h3>
+          <p class="alternating-description">시대를 초월한 미학이 패션, 예술, 디자인에서 어떻게 복귀하고 있는지, 유산과 현대적 감성을 혼합하는 방식을 탐구합니다.</p>
+          <a href="#" class="alternating-link">READ MORE</a>
+        </div>
+      </div>
+
+      <div class="alternating-item reverse">
+        <div class="alternating-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&h=800&fit=crop" alt="Feature 4">
+        </div>
+        <div class="alternating-text-wrapper">
+          <div class="alternating-date">2026.01.20</div>
+          <h3 class="alternating-title">파리에서 열린 가장 우아한 그랜드 오프닝</h3>
+          <p class="alternating-description">티파니 앤 코의 새로운 플래그십 스토어 오프닝을 통해 본 럭셔리 브랜드의 문화적 영향력과 예술적 비전.</p>
+          <a href="#" class="alternating-link">READ MORE</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Final Masonry Grid Section -->
+    <div class="section-header">
+      <div class="vogue-logo-center">VOGUE</div>
+    </div>
+
+    <div class="masonry-grid">
+      <div class="masonry-item span-2">
+        <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&h=400&fit=crop" alt="Final 1">
+      </div>
+      <div class="masonry-item span-2 tall">
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&h=800&fit=crop" alt="Final 2">
+        <div class="masonry-item-text">
+          <div class="masonry-item-title">PORTRAIT SERIES</div>
+          <div class="masonry-item-subtitle">MODERN ELEGANCE</div>
+        </div>
+      </div>
+      <div class="masonry-item span-2">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop" alt="Final 3">
+      </div>
+      <div class="masonry-item span-3">
+        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&h=400&fit=crop" alt="Final 4">
+      </div>
+      <div class="masonry-item span-3">
+        <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=800&h=400&fit=crop" alt="Final 5">
+        <div class="masonry-item-text">
+          <div class="masonry-item-title">LIFESTYLE & CULTURE</div>
+          <div class="masonry-item-subtitle">BEHIND THE SCENES</div>
+        </div>
+      </div>
+      <div class="masonry-item span-2">
+        <img src="https://images.unsplash.com/photo-1479936343636-73cdc5aae0c3?w=600&h=400&fit=crop" alt="Final 6">
+      </div>
+      <div class="masonry-item span-2">
+        <img src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?w=600&h=400&fit=crop" alt="Final 7">
+      </div>
+      <div class="masonry-item span-2">
+        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&h=400&fit=crop" alt="Final 8">
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-section">
+      <div class="footer-logo">VOGUE</div>
+      <div class="footer-years">2024 • 2025 • 2026 • CULTURE • KOREA</div>
+    </div>
+  </div>
+
+</body>
+
+</html>

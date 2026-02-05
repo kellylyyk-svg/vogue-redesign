@@ -1,0 +1,8 @@
+.vscode/
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+video/herovd.mp4
+*.glb
+*.hdr

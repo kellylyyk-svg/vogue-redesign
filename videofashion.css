@@ -1,0 +1,1147 @@
+/* =========================================
+   Vogue Unified Stylesheet (Video & Fashion)
+   ========================================= */
+
+/* 1. Reset & Variables */
+:root {
+    --bg-color: #050505;
+    --text-color: #ffffff;
+    --accent-color: #e0e0e0;
+    --font-serif: 'DM Serif Display', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 2. Global Styles */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+}
+
+/* Fashion Page (Light Mode) Override */
+body.fashion-page {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+}
+
+.outline-text {
+    font-family: var(--font-serif);
+    color: #fff;
+    font-size: 120px;
+    text-align: right;
+    margin-right: 120px;
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+.tag {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #aaa;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* 3. Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 120px;
+    height: 80px;
+    border-bottom: 1px solid rgba(255, 255, 255, 1);
+    background: #000;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    letter-spacing: -1px;
+    flex: 1;
+}
+
+.nav-links {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    gap: 120px;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: var(--font-sans);
+    letter-spacing: normal;
+    font-weight: 400;
+}
+
+.nav-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.subscribe-btn {
+    background: #fff;
+    color: #000;
+    border: none;
+    padding: 0.3rem 0.6rem;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 2px;
+    font-weight: 600;
+}
+
+/* Fashion Nav Override */
+body.fashion-page nav.sub-nav {
+    background-color: #ffffff;
+    border-bottom: 1px solid #000000;
+}
+
+body.fashion-page nav.sub-nav .nav-links a {
+    color: #000000;
+}
+
+body.fashion-page nav.sub-nav .subscribe-btn {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+body.fashion-page nav.sub-nav .logo {
+    color: #000;
+}
+
+/* 4. Shared Components */
+.sub_hero {
+    position: relative;
+    width: 100%;
+    max-width: 1680px;
+    height: 231px;
+    margin: 50px auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sub_hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.8);
+}
+
+.sub_hero p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 120px;
+    font-weight: 400;
+    font-family: var(--font-serif);
+    color: #fff;
+    margin: 0;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+}
+
+.main-separator {
+    width: 100%;
+    border-top: 1px solid #000;
+    margin-bottom: 150px;
+}
+
+.full-divider {
+    width: 100vw;
+    height: 1px;
+    background-color: #000;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
+
+/* 5. Video Page Sections */
+main {
+    border-top: 1px solid rgba(255, 255, 255, 1);
+}
+
+body.fashion-page main {
+    border-top: none;
+}
+
+/* Vogue Cinema */
+.vogue-cinema-section {
+    padding: 6rem 120px;
+    margin: 0 auto 200px;
+    text-align: left;
+}
+
+.cinema-title {
+    font-size: 5rem;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.cinema-subtitle {
+    font-size: 3rem;
+    font-family: var(--font-serif);
+    color: #fff;
+}
+
+.video-wrapper {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    height: 900px;
+    overflow: hidden;
+}
+
+.video-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.video-iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 56.25vw;
+    min-height: 100%;
+    min-width: 177.77vh;
+    transform: translate(-50%, -50%);
+    border: none;
+    pointer-events: none;
+}
+
+/* Panorama/Just In */
+.just-in-section {
+    position: relative;
+    padding: 0;
+    background: #000;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 200px;
+}
+
+.panorama-curve {
+    position: relative;
+    width: 100%;
+    z-index: 10;
+    background: #050505;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.panorama-curve.top {
+    height: 15rem;
+    margin-bottom: -5rem;
+}
+
+.panorama-curve.top::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: -10%;
+    width: 120%;
+    height: 100px;
+    background: #050505;
+    border-radius: 0 0 50% 50%;
+}
+
+.panorama-curve.bottom {
+    height: 15rem;
+    margin-top: -5rem;
+    flex-direction: column;
+}
+
+.panorama-curve.bottom::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -10%;
+    width: 120%;
+    height: 100px;
+    background: #050505;
+    border-radius: 50% 50% 0 0;
+}
+
+.panorama-viewport {
+    width: 100%;
+    height: 600px;
+    position: relative;
+    z-index: 1;
+    perspective: 2000px;
+    overflow: hidden;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-track {
+    position: relative;
+    width: 1000px;
+    height: 400px;
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out;
+}
+
+.video-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 337.5px;
+    margin-left: -300px;
+    margin-top: -168.75px;
+    backface-visibility: hidden;
+}
+
+.card-media {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.panorama-text {
+    text-align: center;
+    z-index: 20;
+    margin-top: 2rem;
+}
+
+.panorama-text .tag {
+    font-size: 30px;
+}
+
+.panorama-text p {
+    font-size: 40px;
+    line-height: 1.2;
+    color: #fff;
+    font-weight: 300;
+}
+
+/* Recommended */
+.recommended-section {
+    padding: 5rem 120px;
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: 200px;
+}
+
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
+
+.recommended-grid {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+    margin: 0 auto;
+    height: auto;
+    position: relative;
+}
+
+.rec-item {
+    width: 653px;
+    height: 750px;
+    position: relative;
+}
+
+.rec-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.0s ease-in-out;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.rec-content.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.recommended-section .tag {
+    font-size: 35px;
+    margin-bottom: 1rem;
+}
+
+.recommended-section h4 {
+    font-size: 40px;
+    line-height: 1.2;
+}
+
+.media-wrapper {
+    width: 100%;
+    max-width: 653px;
+    aspect-ratio: 653 / 709;
+    height: auto;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.media-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.center-spinner {
+    width: 150px;
+    height: 150px;
+    flex-shrink: 0;
+    animation: spin 20s linear infinite;
+    margin-top: 280px;
+}
+
+.spinner-text {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    letter-spacing: 2px;
+    fill: #C98C8C;
+    text-transform: uppercase;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Motion */
+.vogue-motion-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #050505;
+    z-index: 0;
+}
+
+.blur-bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 120px;
+    z-index: 100;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blur-bar.top {
+    top: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.motion-header-grid {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 1400px;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.blur-bar.bottom {
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.scroll-instruction {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.motion-scroll-container {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: none;
+    position: relative;
+    z-index: 1;
+}
+
+.motion-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+.masonry-grid {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    min-width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    gap: 32px;
+}
+
+.masonry-col {
+    display: flex;
+    flex-direction: column;
+    width: 653px;
+    gap: 32px;
+    flex-shrink: 0;
+}
+
+.masonry-col:nth-child(even) {
+    margin-top: 150px;
+}
+
+.motion-item {
+    width: 653px;
+    height: 653px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.motion-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.motion-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.motion-item:hover .motion-overlay {
+    opacity: 1;
+    backdrop-filter: blur(4px);
+}
+
+.motion-item:hover img {
+    transform: scale(1.05);
+}
+
+.motion-title {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    text-align: center;
+    color: #fff;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.motion-item:hover .motion-title {
+    transform: translateY(0);
+}
+
+/* 6. Fashion Page Sections (Scoped under body.fashion-page) */
+body.fashion-page .fashion-content {
+    max-width: 1680px;
+    margin: 0 auto;
+}
+
+body.fashion-page .section-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+}
+
+body.fashion-page .section-title-large {
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    color: #000;
+}
+
+body.fashion-page .view-all {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: #666;
+    display: flex;
+    align-items: center;
+}
+
+body.fashion-page .view-all:after {
+    content: '→';
+    margin-left: 5px;
+}
+
+/* Trend of Today */
+body.fashion-page .trend-grid-top {
+    display: flex;
+    margin-bottom: 2rem;
+    height: 500px;
+}
+
+body.fashion-page .trend-feature-text {
+    width: 40%;
+    background: #5E6F64;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: #fff;
+    gap: 32px;
+    position: relative;
+}
+
+body.fashion-page .trend-tag {
+    font-family: var(--font-sans);
+    font-size: 25px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+body.fashion-page .trend-headline {
+    font-family: var(--font-serif);
+    font-size: 50px;
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+body.fashion-page .trend-sub {
+    font-family: var(--font-sans);
+    font-size: 20px;
+    opacity: 0.8;
+}
+
+body.fashion-page .trend-feature-img {
+    width: 60%;
+    position: relative;
+}
+
+body.fashion-page .trend-feature-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+body.fashion-page .trend-grid-bottom {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+body.fashion-page .trend-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+body.fashion-page .trend-card-img {
+    width: 100%;
+    height: 250px;
+    margin-bottom: 1rem;
+}
+
+body.fashion-page .trend-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+body.fashion-page .trend-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+body.fashion-page .card-title {
+    font-family: var(--font-sans);
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #000;
+}
+
+body.fashion-page .card-tag {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    text-transform: uppercase;
+}
+
+body.fashion-page .card-date {
+    font-size: 18px;
+    color: #666;
+    text-transform: uppercase;
+}
+
+/* Insight */
+body.fashion-page .insight-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 32px;
+}
+
+body.fashion-page .insight-item {
+    height: 400px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+body.fashion-page .insight-item.img-item {
+    grid-column: span 3;
+}
+
+body.fashion-page .insight-item.text-item {
+    grid-column: span 2;
+    background: #2a2a2a;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    gap: 32px;
+}
+
+body.fashion-page .insight-item.img-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+body.fashion-page .bg-accent {
+    background: #3B5D61 !important;
+}
+
+body.fashion-page .insight-item.text-item:nth-child(2) {
+    background: #222;
+}
+
+body.fashion-page .insight-title {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+body.fashion-page .insight-tag {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+body.fashion-page .insight-date {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-top: 1rem;
+    text-transform: uppercase;
+}
+
+/* Items */
+body.fashion-page .items-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+body.fashion-page .item-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+body.fashion-page .item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+body.fashion-page .item-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+body.fashion-page .item-tag {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    text-transform: uppercase;
+}
+
+body.fashion-page .item-title {
+    font-family: var(--font-sans);
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #000;
+    min-height: 78px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body.fashion-page .item-price {
+    font-size: 18px;
+    color: #666;
+    text-transform: uppercase;
+}
+
+/* Style */
+body.fashion-page .style-container {
+    display: flex;
+    gap: 15px;
+    height: auto;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+body.fashion-page .style-col {
+    flex: 0 0 310px;
+    position: relative;
+    height: 861px;
+    overflow: hidden;
+}
+
+body.fashion-page .style-col:nth-child(even) {
+    margin-top: 100px;
+}
+
+body.fashion-page .style-col img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+
+body.fashion-page .style-col:hover img {
+    transform: scale(1.05);
+    filter: blur(5px) brightness(0.6);
+}
+
+body.fashion-page .style-overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    width: calc(100% - 94px);
+    word-break: keep-all;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+body.fashion-page .style-col:hover .style-overlay-text {
+    opacity: 1;
+}
+
+body.fashion-page .style-overlay-text .style-tag {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+}
+
+body.fashion-page .style-overlay-text h3 {
+    font-family: var(--font-serif);
+    font-size: 30px;
+    line-height: 1.3;
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+body.fashion-page .style-overlay-text p {
+    font-size: 18px;
+    font-family: var(--font-sans);
+}
+
+/* Pictorial */
+body.fashion-page .pictorial-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+body.fashion-page .pictorial-item {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+body.fashion-page .pictorial-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+body.fashion-page .pictorial-item:hover img {
+    transform: scale(1.1);
+}
+
+body.fashion-page .pictorial-overlay {
+    position: relative;
+    height: auto;
+    background: #333;
+    width: 100%;
+    padding: 28px 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body.fashion-page .pictorial-title {
+    font-family: var(--font-serif);
+    font-size: 30px;
+    margin: 0.5rem 0;
+    font-weight: 400;
+}
+
+body.fashion-page .pictorial-tag {
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: #ccc;
+    text-transform: uppercase;
+}
+
+body.fashion-page .pictorial-date {
+    font-size: 18px;
+    color: #999;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+}
+
+/* Utilities */
+.full-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 7. Footer Styles */
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 3rem 0;
+    border-top: 1px solid #333;
+    text-align: center;
+    position: relative;
+    z-index: 200;
+}
+
+body.fashion-page footer {
+    background-color: #ffffff;
+    color: #000;
+    border-top: 1px solid #000;
+}
+
+body.fashion-page footer a {
+    color: #000;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.footer-logo {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    letter-spacing: -1px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: #ccc;
+    font-weight: 600;
+}
+
+body.fashion-page .footer-links {
+    color: #888;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+body.fashion-page .footer-links a {
+    color: #000;
+}
+
+.footer-links a:hover {
+    color: #aaa;
+}
+
+.footer-links .divider {
+    color: #555;
+    font-size: 0.8rem;
+}
+
+.copyright {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 1rem;
+}
+
+/* Animations & Loader */
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+.loader-text {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}
+
+.loader-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.fade-in-up {
+    animation: fadeInUp 1s forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VOGUE Magazine</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/RGBELoader.js"></script>
+</head>
+
+<body class="intro-mode">
+  <div class="custom-cursor" id="cursor"></div>
+
+  <!-- Top Nav (hover to show) -->
+  <div class="top-nav-trigger" id="topNavTrigger">
+    <div class="nav-hint light" id="navHint">
+      <span class="nav-hint-text">Menu</span>
+      <svg class="nav-hint-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+        <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+      </svg>
+    </div>
+  </div>
+
+  <nav class="top-nav" id="topNav">
+    <div class="top-nav-inner">
+      <span class="top-nav-logo" onclick="goToPage(0)">VOGUE</span>
+      <ul class="top-nav-menu">
+        <li><a href="fashion.html" class="top-nav-item">Fashion</a></li>
+        <li><a href="beauty.html" class="top-nav-item">Beauty</a></li>
+        <li><a href="life.html" class="top-nav-item">Life</a></li>
+        <li><a href="culture.html" class="top-nav-item">Culture</a></li>
+        <li><a href="video.html" class="top-nav-item">Video</a></li>
+      </ul>
+      <button class="top-nav-subscribe" onclick="location.href='subscribe.html'">Subscribe</button>
+    </div>
+  </nav>
+
+  <div class="flipbook" id="flipbook">
+    <div class="page" id="page-0" data-page="0">
+      <div class="intro-page" id="introPage">
+        <div class="intro-canvas" id="introCanvas"></div>
+        <div class="loading-text" id="loadingText">LOADING...</div>
+        <div class="loading-bar-container" id="loadingBarContainer" style="display: none;">
+          <div class="loading-bar-bg">
+            <div class="loading-bar" id="loadingBar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page" id="page-1" data-page="1">
+      <div class="hero-page">
+        <div class="hero-left">
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1200&h=1600&fit=crop"
+            alt="Fashion editorial">
+        </div>
+        <div class="hero-right"></div>
+        <div class="hero-logo" id="heroLogoContainer"></div>
+        <div class="hero-thumbnail">
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=300&h=300&fit=crop" alt="Thumbnail">
+        </div>
+      </div>
+    </div>
+
+    <div class="page" id="page-2" data-page="2">
+      <div class="fashion-page">
+        <video class="fashion-video" autoplay muted loop playsinline>
+          <source src="video/26 Haute Couture Show.mp4" type="video/mp4">
+        </video>
+        <div class="fashion-overlay"></div>
+        <div class="fashion-logo">VOGUE</div>
+        <div class="fashion-content">
+          <span class="fashion-label">Fashion</span>
+          <h1 class="fashion-title">사고 싶은 옷이 없는 요즘,<br>허전한 마음을 달래주는 겨울 액세서리</h1>
+          <span class="fashion-subtitle">Explore Collection</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page 2: Categories -->
+    <div class="page page-categories future" data-page="2" style="z-index: 4;">
+      <div class="cat-logo">VOGUE</div>
+
+      <!-- FASHION: top-22% left-25% -->
+      <h2 class="cat-text cat-fashion-text">FASHION</h2>
+      <!-- Fashion pill: top-20% right-22%, 250x65 -->
+      <div class="cat-pill cat-fashion-pill" id="fashionPill" onclick="location.href='fashion.html'">
+        <video class="pill-img" src="video/fashion.mp4" autoplay muted loop playsinline></video>
+        <video class="pill-video" muted loop playsinline>
+          <source src="https://cdn.coverr.co/videos/coverr-woman-in-a-photoshoot-5169/1080p.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- Polaroids: top-42% left-22% -->
+      <!-- Polaroids Pill: top-42% left-22% -->
+      <div class="cat-pill cat-polaroid-pill" id="polaroidPill">
+        <img src="images/polaroid-grid.png" alt="Polaroid Collection" class="pill-img sliding-polaroids">
+        <video class="pill-video" muted loop playsinline>
+          <source src="https://cdn.coverr.co/videos/coverr-models-backstage-2271/1080p.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- BEAUTY: top-45% right-25% -->
+      <h2 class="cat-text cat-beauty-text" onclick="location.href='beauty.html'">BEAUTY</h2>
+
+      <!-- LIFE: top-65% left-22% -->
+      <h2 class="cat-text cat-life-text" onclick="location.href='life.html'">LIFE</h2>
+      <!-- LIFE pill: top-68% right-20%, 280x70 -->
+      <div class="cat-pill cat-life-pill" id="lifePill" onclick="location.href='life.html'">
+        <video class="pill-img" src="video/living.mp4" autoplay muted loop playsinline></video>
+
+        <video class="pill-video" muted loop playsinline>
+          <source src="https://cdn.coverr.co/videos/coverr-a-woman-walking-on-a-field-7447/1080p.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+
+    <!-- Page 3: Beauty -->
+    <div class="page page-beauty future" data-page="3" style="z-index: 3;">
+      <img src="images/beauty.png" alt="Beauty" class="beauty-bg">
+      <div class="beauty-logo">VOGUE</div>
+      <div class="stamp-container" id="stampContainer"></div>
+    </div>
+
+
+    <!-- Page 4: Culture -->
+    <div class="page page-culture future" id="page-5" data-page="5" style="z-index: 2;">
+      <div class="culture-logo">VOGUE</div>
+
+      <!-- Card 1: top-8% left-10% -->
+      <article class="culture-card" data-index="0" style="top: 8%; left: 10%; background-color: #af272f;">
+        <img src="images/culture1.png" alt="">
+        <div class="card-badge"></div>
+        <div class="card-new-bubble">
+          <svg viewBox="0 0 126 122" fill="none">
+            <path
+              d="M26.832 0.0130401L90.4371 0.0130401C107.584 -0.455383 126 11.7106 126 34.1689V86.6192C126 104.081 113.3 116.299 90.4371 116.299H27.486C17.6503 116.156 6.33657 120.515 3.24983 121.66C-0.281607 122.961 -0.294687 120.189 0.280807 119.057C1.58875 116.455 8.87397 109.949 9.18788 90.2234L9.18788 16.8372C9.18788 7.67696 13.491 0.0130401 26.832 0.0130401Z"
+              fill="white" />
+          </svg>
+          <span>NEW</span>
+        </div>
+        <div class="card-content">
+          <div class="card-top">
+            <span class="card-date">2025.11</span>
+            <h3 class="card-title">THE MACALLAN 360</h3>
+          </div>
+          <div class="card-bottom">
+            <span class="card-category">POP-UP</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2: top-24% centered -->
+      <article class="culture-card" data-index="1"
+        style="top: 24%; left: 0; right: 0; margin: auto; background-color: #1c8078;">
+        <img src="images/culture2.png" alt="">
+        <div class="card-badge"></div>
+        <div class="card-new-bubble">
+          <svg viewBox="0 0 126 122" fill="none">
+            <path
+              d="M26.832 0.0130401L90.4371 0.0130401C107.584 -0.455383 126 11.7106 126 34.1689V86.6192C126 104.081 113.3 116.299 90.4371 116.299H27.486C17.6503 116.156 6.33657 120.515 3.24983 121.66C-0.281607 122.961 -0.294687 120.189 0.280807 119.057C1.58875 116.455 8.87397 109.949 9.18788 90.2234L9.18788 16.8372C9.18788 7.67696 13.491 0.0130401 26.832 0.0130401Z"
+              fill="white" />
+          </svg>
+          <span>NEW</span>
+        </div>
+        <div class="card-content">
+          <div class="card-top">
+            <span class="card-date">2025.11</span>
+            <h3 class="card-title">HANA X G-DRAGON<br>INSIDE THE<br>GIANT'S DREAM</h3>
+          </div>
+          <div class="card-bottom">
+            <span class="card-category">POP-UP</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3: top-40% right-10% -->
+      <article class="culture-card" data-index="2" style="top: 40%; right: 10%; background-color: #174398;">
+        <img src="images/culture3.png" alt="">
+        <div class="card-badge"></div>
+        <div class="card-new-bubble">
+          <svg viewBox="0 0 126 122" fill="none">
+            <path
+              d="M26.832 0.0130401L90.4371 0.0130401C107.584 -0.455383 126 11.7106 126 34.1689V86.6192C126 104.081 113.3 116.299 90.4371 116.299H27.486C17.6503 116.156 6.33657 120.515 3.24983 121.66C-0.281607 122.961 -0.294687 120.189 0.280807 119.057C1.58875 116.455 8.87397 109.949 9.18788 90.2234L9.18788 16.8372C9.18788 7.67696 13.491 0.0130401 26.832 0.0130401Z"
+              fill="white" />
+          </svg>
+          <span>NEW</span>
+        </div>
+        <div class="card-content">
+          <div class="card-top">
+            <span class="card-date">2025.09</span>
+            <h3 class="card-title">MURAKAMI<br>TAKASHI X<br>CASETIFY<br>'MURAKAMI<br>WORLD'</h3>
+          </div>
+          <div class="card-bottom">
+            <span class="card-category">POP-UP</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Scroll indicator -->
+      <div class="culture-indicator">
+        <p class="culture-hint" id="cultureHint">Scroll to expand</p>
+        <div class="culture-dots">
+          <div class="culture-dot" data-index="0"></div>
+          <div class="culture-dot" data-index="1"></div>
+          <div class="culture-dot" data-index="2"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page page-video future" id="page-6" data-page="6">
+      <h1 class="video-title">VIDEO</h1>
+
+      <!-- Phone frame: top-15% left-8% w-85% h-70% -->
+      <div class="video-phone-frame">
+        <!-- Left: video list 35% -->
+        <div class="video-list">
+          <p class="video-list-item active" data-index="0">Troya</p>
+          <p class="video-list-item" data-index="1">Versace Fragrance</p>
+          <p class="video-list-item" data-index="2">Hermès Ski</p>
+          <p class="video-list-item" data-index="3">Dior Rouge</p>
+          <p class="video-list-item" data-index="4">Vogue The Independents</p>
+          <p class="video-list-item" data-index="5">Louis Vuitton Cruise</p>
+          <p class="video-list-item" data-index="6">Jacquemus</p>
+          <p class="video-list-item" data-index="7">Vogue Pr Da Pra</p>
+        </div>
+
+        <!-- Right: carousel 65% -->
+        <div class="video-carousel">
+          <div class="video-thumb" data-offset="-1"></div>
+          <div class="video-thumb" data-offset="0"></div>
+          <div class="video-thumb" data-offset="1"></div>
+          <div class="video-thumb" data-offset="2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-indicators" id="pageIndicators">
+    <button class="page-indicator active" data-page="0"></button>
+    <button class="page-indicator" data-page="1"></button>
+    <button class="page-indicator" data-page="2"></button>
+    <button class="page-indicator" data-page="3"></button>
+    <button class="page-indicator" data-page="4"></button>
+    <button class="page-indicator" data-page="5"></button>
+    <button class="page-indicator" data-page="6"></button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

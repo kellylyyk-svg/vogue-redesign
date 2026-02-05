@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE VOGUE CINEMA</title>
+    <link rel="stylesheet" href="videofashion.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+</head>
+
+<body>
+    <!-- Loading Animation Overlay
+    <div class="loader-overlay">
+        <div class="loader-text">VOGUE</div>
+    </div> -->
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">VOGUE</a></div>
+        <div class="nav-links">
+            <a href="fashion.html">Fashion</a>
+            <a href="beauty.html">Beauty</a>
+            <a href="life.html">Life</a>
+            <a href="culture.html">Culture</a>
+            <a href="video.html">Video</a>
+        </div>
+        <div class="nav-right">
+            <button class="subscribe-btn" onclick="location.href='subscribe.html'">Subscribe</button>
+        </div>
+    </nav>
+
+    <div class="sub_hero">
+        <img src="images1/sub_hero.png" alt="">
+        <p>Video</p>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- The Vogue Cinema Section -->
+        <section class="vogue-cinema-section">
+            <div class="cinema-header">
+                <h2 class="cinema-title">THE VOGUE CINEMA</h2>
+                <h3 class="cinema-subtitle">: Visionary Artistry</h3>
+            </div>
+
+            <div class="video-wrapper">
+                <div class="video-container">
+                    <iframe class="video-iframe"
+                        src="https://www.youtube.com/embed/EnHETfE5GOY?autoplay=1&mute=1&controls=0&loop=1&playlist=EnHETfE5GOY"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Just In Videos (Curved Panorama) -->
+        <section class="just-in-section">
+            <!-- Curved Overlays handled in CSS via pseudo-elements or dedicated divs if needed for content? 
+                 User wants text IN the black areas. So dedicated divs are safer. -->
+
+            <div class="panorama-curve top">
+                <h2 class="outline-text">Just In Videos</h2>
+            </div>
+
+            <div class="panorama-viewport">
+                <div class="carousel-track">
+                    <!-- Card 1 -->
+                    <div class="video-card">
+                        <div class="card-media">
+                            <img src="images1/sec1_1.png" alt="Just In 1">
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="video-card center-card">
+                        <div class="card-media">
+                            <img src="images1/sec1-2.png" alt="Just In 2">
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="video-card">
+                        <div class="card-media">
+                            <img src="images1/sec1-3.png" alt="Just In 3">
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="video-card">
+                        <div class="card-media">
+                            <img src="images1/sec3-1.png" alt="Just In 4">
+                        </div>
+                    </div>
+                    <!-- Card 5 -->
+                    <div class="video-card">
+                        <div class="card-media">
+                            <img src="images1/sec3-2.png" alt="Just In 5">
+                        </div>
+                    </div>
+                    <!-- Card 6 -->
+                    <div class="video-card">
+                        <div class="card-media">
+                            <img src="images1/sec3-3.png" alt="Just In 6">
+                        </div>
+                    </div>
+                    <!-- Card 7 -->
+                    <div class="video-card">
+                        <div class="card-media">
+                            <img src="images1/sec3-4.png" alt="Just In 7">
+                        </div>
+                    </div>
+                    <!-- Card 8 -->
+                    <div class="video-card">
+                        <div class="card-media">
+                            <img src="images1/sec3-5.png" alt="Just In 8">
+                        </div>
+                    </div>
+                    <!-- Card 9 -->
+                    <div class="video-card">
+                        <div class="card-media">
+                            <img src="images1/sec3-6.png" alt="Just In 9">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panorama-curve bottom">
+                <div class="panorama-text">
+                    <span class="tag">VOGUE MEETS</span>
+                    <p>로제의 2025 멧 갈라 에피소드<br>부터 뮤직비디오 비하인드까지!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommended For You (Rotating) -->
+        <section class="recommended-section">
+            <h2 class="section-title">Recommended For You</h2>
+
+            <div class="recommended-grid">
+                <!-- Left Item -->
+                <!-- Left Item -->
+                <div class="rec-item left">
+                    <!-- Content 1 (Active) -->
+                    <div class="rec-content active" id="rec-left-1">
+                        <div class="media-wrapper">
+                            <img src="images1/sec2-1.png" alt="Rec 1">
+                        </div>
+                        <div class="text-wrapper">
+                            <span class="tag">VOGUE MEETS</span>
+                            <h4>NewJeans Minji's <br>Makeup Routine</h4>
+                        </div>
+                    </div>
+                    <!-- Content 2 (Hidden) -->
+                    <div class="rec-content" id="rec-left-2">
+                        <div class="media-wrapper">
+                            <img src="images1/sec2-2.png" alt="Rec 1 Next">
+                        </div>
+                        <div class="text-wrapper">
+                            <span class="tag">VOGUE MEETS</span>
+                            <h4>NewJeans Minji's <br>Makeup Routine</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center Rotating Text -->
+                <div class="center-spinner">
+                    <svg viewBox="0 0 200 200" class="rotating-text-svg">
+                        <path id="circlePath" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
+                            fill="transparent" />
+                        <text>
+                            <textPath href="#circlePath" class="spinner-text">
+                                • TRENDING NOW • WATCH THIS • VOGUE EXCLUSIVE •
+                            </textPath>
+                        </text>
+                    </svg>
+                </div>
+
+                <!-- Right Item -->
+                <div class="rec-item right">
+                    <!-- Content 1 (Active) -->
+                    <div class="rec-content active" id="rec-right-1">
+                        <div class="media-wrapper">
+                            <img src="images1/sec2-2.png" alt="Rec 2">
+                        </div>
+                        <div class="text-wrapper">
+                            <span class="tag">VOGUE DIARY</span>
+                            <h4>What's in my bag? <br>Rose Edition</h4>
+                        </div>
+                    </div>
+                    <!-- Content 2 (Hidden) -->
+                    <div class="rec-content" id="rec-right-2">
+                        <div class="media-wrapper">
+                            <img src="images1/sec2-1.png" alt="Rec 2 Next">
+                        </div>
+                        <div class="text-wrapper">
+                            <span class="tag">VOGUE DIARY</span>
+                            <h4>What's in my bag? <br>Rose Edition</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vogue Motion Header (Normal Text) -->
+        <div class="section-header">
+            <h2 class="outline-text">VOGUE MOTION</h2>
+        </div>
+
+        <!-- Vogue Motion (Masonry Infinite Scroll) -->
+        <section class="vogue-motion-wrapper">
+            <!-- Top Fixed Bar -->
+            <div class="blur-bar top">
+                <div class="motion-header-grid">
+                    <span>Fashion</span>
+                    <span>Beauty</span>
+                    <span>Life</span>
+                    <span>Culture</span>
+                </div>
+            </div>
+
+            <!-- Scrollable Content -->
+            <div class="motion-scroll-container">
+                <div class="masonry-grid" id="motionGrid">
+                    <!-- Initial Content will be populated by JS -->
+                </div>
+            </div>
+
+            <!-- Bottom Fixed Bar -->
+            <div class="blur-bar bottom">
+                <h2 class="scroll-instruction">Scroll to explore Videos</h2>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">VOGUE</div>
+            <div class="footer-links">
+                <a href="subscribe.html">정기구독</a> <span class="divider">|</span>
+                <a href="#">회사소개</a> <span class="divider">|</span>
+                <a href="#">광고/제휴</a> <span class="divider">|</span>
+                <a href="#">개인정보 처리방침</a> <span class="divider">|</span>
+                <a href="#">공지사항</a>
+            </div>
+            <p class="copyright">VOGUE.CO.KR IS OPERATED BY DOOSAN MAGAZINE</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

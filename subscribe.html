@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VOGUE Subscribe</title>
+  <link rel="stylesheet" href="styles.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body class="subscribe-body">
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" id="cursor"></div>
+
+  <!-- Navigation -->
+  <nav class="sub-nav">
+    <div class="sub-nav-inner">
+      <a href="index.html" class="sub-logo">VOGUE</a>
+      <ul class="sub-menu">
+        <li><a href="fashion.html">Fashion</a></li>
+        <li><a href="beauty.html">Beauty</a></li>
+        <li><a href="life.html">Life</a></li>
+        <li><a href="culture.html">Culture</a></li>
+        <li><a href="video.html">Video</a></li>
+      </ul>
+      <a href="subscribe.html" class="sub-subscribe-link">Subscribe</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Subscribe Hero -->
+    <section class="sub-hero">
+      <div class="sub-hero-left">
+        <h1 class="sub-hero-title">subscribe</h1>
+        <div class="sub-hero-img-box">
+          <!-- Using the uploaded image representation or placeholders -->
+          <img src="images/구독1.png" alt="Subscribe Mockup" class="sub-hero-img">
+        </div>
+      </div>
+      <div class="sub-hero-right">
+        <h2 class="sub-hero-headline">Every story, Every moment, All in VOGUE.</h2>
+        <p class="sub-hero-desc">첫해 월 5,000원으로 Vogue.com과 Vogue 앱을 무제한으로 이용하실 수 있습니다.</p>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="sub-pricing">
+      <!-- Toggle -->
+      <div class="sub-toggle-container">
+        <div class="sub-toggle">
+          <button class="sub-toggle-btn active" id="btn-digital">디지털</button>
+          <button class="sub-toggle-btn" id="btn-print">인쇄 + 디지털</button>
+        </div>
+      </div>
+
+      <!-- Digital Cards Grid -->
+      <div class="sub-cards-grid" id="digital-plans">
+        <!-- Card 1 -->
+        <article class="sub-card">
+          <div class="sub-card-header">
+            <div class="radio-circle"></div>
+            <h3 class="sub-card-title">월간 디지털 구독</h3>
+          </div>
+          <p class="sub-price">
+            <span class="cross">월 10,000원</span> <span class="bold">첫 1년동안 월 5,000원</span>
+          </p>
+          <div class="sub-perk-box">
+            Vogue.com에 무제한 접속할 수 있습니다.
+          </div>
+          <p class="sub-terms">
+            이 특별 할인 혜택은 1년간 월 10,000원으로 자동 갱신되며, 이후에는 월 20,000원의 표준 요금으로 전환됩니다. 언제든지 취소 또는 일시 중지할 수 있습니다.
+          </p>
+        </article>
+
+        <!-- Card 2 (Best Offer) -->
+        <article class="sub-card popular active">
+          <div class="best-offer-badge">BEST OFFER</div>
+          <div class="sub-card-header">
+            <div class="radio-circle checked">
+              <div class="radio-dot"></div>
+            </div>
+            <h3 class="sub-card-title">연간 디지털 구독</h3>
+          </div>
+          <p class="sub-price">
+            <span class="cross">월 6,000원</span> <span class="bold">첫 1년동안 월 2,000원</span>
+          </p>
+          <div class="sub-perk-box">
+            Vogue.com에 무제한 접속할 수 있습니다.
+          </div>
+          <p class="sub-terms">
+            이 특별 할인 혜택은 구매시 24,000원으로 결제됩니다. 1년 후에는 연간 72,000원으로 자동 갱신됩니다. 언제든지 취소 또는 일시 중지할 수 있습니다.
+          </p>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="sub-card">
+          <div class="sub-card-header">
+            <div class="radio-circle"></div>
+            <h3 class="sub-card-title">보그 + 전체 구독</h3>
+          </div>
+          <p class="sub-price">
+            <span class="cross">월 20,000원</span> <span class="bold">첫 1년동안 월 7,000원</span>
+          </p>
+          <div class="sub-perk-box small">
+            보그를 비롯한 8개의 유명 브랜드 (뉴요커, 베니티 페어, 아키텍처럴 다이제스트, 본 아페티트, 에피큐리어스, GQ, 콘데 나스트 트래블러, 와이어드)에 대해 무제한 접속할 수 있습니다.
+          </div>
+          <p class="sub-terms">
+            이 특별 할인 혜택은 구매 시 84,000원으로 결제됩니다. 1년 후에는 연간 240,000원으로 자동 갱신됩니다. 언제든지 취소 또는 일시 중지할 수 있습니다.
+          </p>
+        </article>
+      </div>
+
+      <!-- Print Cards Grid (Hidden by default) -->
+      <div class="sub-cards-grid" id="print-plans" style="display: none;">
+        <!-- Print Card 1 -->
+        <article class="sub-card">
+          <div class="sub-card-header">
+            <div class="radio-circle"></div>
+            <h3 class="sub-card-title">월간 인쇄 + 디지털</h3>
+          </div>
+          <p class="sub-price">
+            <span class="cross">월 15,000원</span> <span class="bold">첫 1년동안 월 8,000원</span>
+          </p>
+          <div class="sub-perk-box">
+            Vogue 매거진 배송 + Vogue.com 무제한 접속
+          </div>
+          <p class="sub-terms">
+            매월 최신호가 배송됩니다. 1년간 월 8,000원 할인 가격으로 즐겨보세요. 언제든지 취소 가능합니다.
+          </p>
+        </article>
+
+        <!-- Print Card 2 -->
+        <article class="sub-card popular">
+          <div class="best-offer-badge">BEST OFFER</div>
+          <div class="sub-card-header">
+            <div class="radio-circle"></div>
+            <h3 class="sub-card-title">연간 인쇄 + 디지털</h3>
+          </div>
+          <p class="sub-price">
+            <span class="cross">연 180,000원</span> <span class="bold">첫 1년 90,000원</span>
+          </p>
+          <div class="sub-perk-box">
+            Vogue 매거진 12권 배송 + 2개월 무료
+          </div>
+          <p class="sub-terms">
+            가장 인기 있는 연간 플랜입니다. 1년 구독으로 50% 할인 혜택을 누리세요.
+          </p>
+        </article>
+
+        <!-- Print Card 3 -->
+        <article class="sub-card">
+          <div class="sub-card-header">
+            <div class="radio-circle"></div>
+            <h3 class="sub-card-title">프리미엄 패키지</h3>
+          </div>
+          <p class="sub-price">
+            <span class="cross">연 250,000원</span> <span class="bold">첫 1년 150,000원</span>
+          </p>
+          <div class="sub-perk-box">
+            보그 전권 + 스페셜 에디션 + 굿즈 박스
+          </div>
+          <p class="sub-terms">
+            진정한 보그 팬을 위한 프리미엄 패키지입니다. 한정판 굿즈를 포함한 특별한 구성을 만나보세요.
+          </p>
+        </article>
+      </div>
+
+      <!-- Payment Icons -->
+      <div class="payment-icons">
+        <span>💳 CARD</span>
+        <span> Pay</span>
+        <span>G Pay</span>
+        <span>PayPal</span>
+      </div>
+
+      <!-- Action Button -->
+      <button class="sub-action-btn">구독하기</button>
+      <p class="sub-cancel-note">언제든지 취소 또는 일시 중지할 수 있습니다.</p>
+    </section>
+
+    <!-- Interactive "What Included" Section -->
+    <section class="sub-included">
+      <h2 class="sub-included-title">연간 디지털 구독에는 무엇이 포함되어 있나요?</h2>
+
+      <div class="included-grid">
+        <div class="included-img-col">
+          <!-- Default Image -->
+          <img src="images/구독2.png" alt="Vogue Eco Bag" id="includedImg">
+        </div>
+        <div class="included-list-col">
+          <ul class="included-list">
+            <li class="included-item active" data-img="images/구독2.png">
+              <h4 class="inc-title">보그 에코백</h4>
+              <p class="inc-desc">한정판 에코백이 집 앞까지 배송됩니다.</p>
+            </li>
+            <li class="included-item" data-img="images/구독3.jpg">
+              <h4 class="inc-title">보그 최신호</h4>
+              <p class="inc-desc">1월 호를 무제한으로 이용하세요</p>
+            </li>
+            <li class="included-item" data-img="images/구독4.jpg">
+              <h4 class="inc-title">보그 앱</h4>
+              <p class="inc-desc">패션, 스타일, 문화를 제일 먼저 만나보세요</p>
+            </li>
+            <li class="included-item" data-img="images/구독5.webp">
+              <h4 class="inc-title">보그 모먼트</h4>
+              <p class="inc-desc">보그 월드를 비롯한 상징적인 순간들을 독점으로 다룹니다</p>
+            </li>
+            <li class="included-item" data-img="images/구독6.webp">
+              <h4 class="inc-title">보그 웨딩</h4>
+              <p class="inc-desc">웨딩링, 웨딩드레스, 꽃 등 다양한 보그 웨딩상품들을 만나보세요</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="life-footer">
+    <div class="footer-logo">VOGUE</div>
+    <ul class="footer-links">
+      <li><a href="subscribe.html" style="color: inherit; text-decoration: none;">정기구독</a></li>
+      <li>회사소개</li>
+      <li>광고안내</li>
+      <li>개인정보처리방침</li>
+    </ul>
+    <p class="footer-copy">VOGUE KOREA IS OPERATED BY DOOSAN MAGAZINE</p>
+  </footer>
+
+  <script>
+    // Custom Cursor
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+
+    // Included Section Interaction
+    const items = document.querySelectorAll('.included-item');
+    const includedImg = document.getElementById('includedImg');
+
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        // Remove active from all
+        items.forEach(i => i.classList.remove('active'));
+        // Add active to clicked
+        item.classList.add('active');
+
+        // Change Image
+        const newSrc = item.dataset.img;
+        // Simple fade effect
+        includedImg.style.opacity = 0;
+        setTimeout(() => {
+          includedImg.src = newSrc;
+          includedImg.style.opacity = 1;
+        }, 200);
+      });
+    });
+
+    // Pricing Card Selection Visuals (Simulated)
+    const cards = document.querySelectorAll('.sub-card');
+
+    function attachCardListeners() {
+      const allCards = document.querySelectorAll('.sub-card');
+      allCards.forEach(card => {
+        // Remove old listeners to prevent duplicates (simple approach: clone or re-query)
+        // Here simply re-attaching is fine if we are careful, but safer to just delegate or run once.
+        // For simplicity in this static mix, we just run on all.
+
+        card.onclick = function () { // Use onclick to override previous
+          // Reset all active in CURRENT visible grid
+          const currentGrid = card.parentElement;
+          currentGrid.querySelectorAll('.sub-card').forEach(c => c.classList.remove('active'));
+          currentGrid.querySelectorAll('.radio-circle').forEach(rc => {
+            rc.classList.remove('checked');
+            rc.innerHTML = '';
+          });
+
+          // Activate clicked
+          card.classList.add('active');
+          const rc = card.querySelector('.radio-circle');
+          rc.classList.add('checked');
+          rc.innerHTML = '<div class="radio-dot"></div>';
+        }
+      });
+    }
+
+    // Init listeners
+    attachCardListeners();
+
+    // Toggle Logic
+    const btnDigital = document.getElementById('btn-digital');
+    const btnPrint = document.getElementById('btn-print');
+    const digitalPlans = document.getElementById('digital-plans');
+    const printPlans = document.getElementById('print-plans');
+
+    btnDigital.addEventListener('click', () => {
+      btnDigital.classList.add('active');
+      btnPrint.classList.remove('active');
+      digitalPlans.style.display = 'grid';
+      printPlans.style.display = 'none';
+    });
+
+    btnPrint.addEventListener('click', () => {
+      btnPrint.classList.add('active');
+      btnDigital.classList.remove('active');
+      printPlans.style.display = 'grid';
+      digitalPlans.style.display = 'none';
+      // Re-attach listeners just in case (though they persist)
+      attachCardListeners();
+    });
+  </script>
+</body>
+
+</html>
